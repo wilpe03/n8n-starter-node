@@ -7,7 +7,31 @@ import {
 } from 'n8n-workflow';
 
 export class ExampleNode implements INodeType {
-	description: INodeTypeDescription = {
+    private description = {
+        displayName: 'Example Node',
+        name: 'exampleNode',
+        group: ['transform'],
+        version: 1,
+        description: 'Basic Example Node',
+        defaults: {
+            name: 'Example Node',
+        },
+        inputs: ['main'],
+        outputs: ['main'],
+        properties: [
+            // Node properties which the user gets displayed and
+            // can change on the node.
+            {
+                displayName: 'My String',
+                name: 'myString',
+                type: 'string',
+                default: '',
+                placeholder: 'Placeholder value',
+                description: 'The description text',
+            },
+        ],
+    };
+    description: INodeTypeDescription = {
 		displayName: 'Example Node',
 		name: 'exampleNode',
 		group: ['transform'],
